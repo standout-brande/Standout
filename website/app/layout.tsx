@@ -14,8 +14,6 @@ export const metadata: Metadata = {
   title: 'Standout — Exhibition marketing, end to end',
   description:
     'Stand graphics, campaigns, coverage, data capture and post-show nurture from one team, so every exhibition earns its place.',
-  // Google Search Console ownership check.
-  verification: { google: 'EJbO--Xy66Q59KlAnMvwJl8YRPpPUGDkpKcpIR4VRQw' },
 }
 
 export const viewport: Viewport = { themeColor: '#050A18' }
@@ -24,6 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${funnel.variable} ${geist.variable} ${geistMono.variable}`}>
       <head>
+        {/* Google Search Console ownership check */}
+        <meta name="google-site-verification" content="EJbO--Xy66Q59KlAnMvwJl8YRPpPUGDkpKcpIR4VRQw" />
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
