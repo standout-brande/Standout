@@ -1,8 +1,14 @@
-import type { Metadata } from 'next'
 import { AboutPage } from '@/components/pages/AboutPage'
+import { JsonLd } from '@/components/JsonLd'
+import { PAGE_SEO, breadcrumbLd, ldGraph, pageMetadata, webPageLd } from '@/lib/seo'
 
-export const metadata: Metadata = { title: 'About — Standout', description: 'One team for everything before, during and after the show. Who we are and how we work.' }
+export const metadata = pageMetadata(PAGE_SEO.about)
 
 export default function About() {
-  return <AboutPage />
+  return (
+    <>
+      <JsonLd data={ldGraph(webPageLd('AboutPage', PAGE_SEO.about), breadcrumbLd([{ name: 'About', path: PAGE_SEO.about.path }]))} />
+      <AboutPage />
+    </>
+  )
 }

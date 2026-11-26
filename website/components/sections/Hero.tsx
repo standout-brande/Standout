@@ -85,6 +85,9 @@ export function Hero() {
       <Crowd mode="hero" className="hero-fade pointer-events-none absolute inset-0 h-full w-full" />
       <div className="relative mx-auto w-full max-w-[1440px]">
 
+        {/* What we are and where, in plain words for visitors and search; the slide headline carries the voice. */}
+        <p className="hero-fade mb-5 font-mono text-[12px] uppercase tracking-[0.08em] text-steel md:mb-7 md:text-[13px]">Exhibition marketing agency · Dubai, UAE</p>
+
         {/* Two line slots stay mounted (HeroIntro clips them on scroll); the text inside swaps per slide. */}
         <h1 className="font-display text-[clamp(2rem,5.9vw,5.4rem)] font-extrabold leading-[0.92] tracking-[-0.035em]">
           {[0, 1].map((n) => {

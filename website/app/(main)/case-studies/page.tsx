@@ -1,8 +1,14 @@
-import type { Metadata } from 'next'
 import { CaseStudiesPage } from '@/components/pages/CaseStudiesPage'
+import { JsonLd } from '@/components/JsonLd'
+import { PAGE_SEO, breadcrumbLd, ldGraph, pageMetadata, webPageLd } from '@/lib/seo'
 
-export const metadata: Metadata = { title: 'Case Studies — Standout', description: 'Shows we made count: what we did, for whom, and the number that mattered.' }
+export const metadata = pageMetadata(PAGE_SEO.caseStudies)
 
 export default function CaseStudies() {
-  return <CaseStudiesPage />
+  return (
+    <>
+      <JsonLd data={ldGraph(webPageLd('CollectionPage', PAGE_SEO.caseStudies), breadcrumbLd([{ name: 'Case Studies', path: PAGE_SEO.caseStudies.path }]))} />
+      <CaseStudiesPage />
+    </>
+  )
 }

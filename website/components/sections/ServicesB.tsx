@@ -105,7 +105,7 @@ export function ServicesB() {
                 {/* Lead photograph: left on even cards, right on odd. */}
                 <div className={`relative h-[40%] shrink-0 p-[17px] md:col-span-6 md:h-full ${i % 2 ? 'md:order-2' : ''}`}>
                   <div className="relative h-full w-full overflow-hidden rounded-[18px] md:rounded-[22px]">
-                    <img src={SERVICE_PHOTOS[g.lead]} style={servicePhotoStyle(g.lead)} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                    <img loading="lazy" decoding="async" src={SERVICE_PHOTOS[g.lead]} style={servicePhotoStyle(g.lead)} alt={`${SERVICES[g.lead].name} for exhibitors in Dubai and the UAE`} className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                 </div>
 
@@ -135,7 +135,7 @@ export function ServicesB() {
                         <li key={m}>
                           <a href={serviceHref(SERVICE_PAGES[m].slug)} data-cursor="open" className="group flex flex-col gap-1.5">
                             <span className="relative block aspect-[16/10] w-full overflow-hidden rounded-[10px] border border-mist/10 md:rounded-[12px]">
-                              <img src={SERVICE_PHOTOS[m]} style={servicePhotoStyle(m)} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]" />
+                              <img loading="lazy" decoding="async" src={SERVICE_PHOTOS[m]} style={servicePhotoStyle(m)} alt={SERVICES[m].name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]" />
                             </span>
                             <span className="text-[12px] leading-tight text-mist/85 transition-colors group-hover:text-signal md:text-[13px]">
                               <span className="md:hidden">{SERVICES[m].short}</span>
