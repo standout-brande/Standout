@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   title: 'Standout — Exhibition marketing, end to end',
   description:
     'Stand graphics, campaigns, coverage, data capture and post-show nurture from one team, so every exhibition earns its place.',
+  // Google Search Console ownership check.
+  verification: { google: 'EJbO--Xy66Q59KlAnMvwJl8YRPpPUGDkpKcpIR4VRQw' },
 }
 
 export const viewport: Viewport = { themeColor: '#050A18' }
