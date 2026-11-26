@@ -129,3 +129,16 @@ The header (`components/SiteHeader.tsx`) has a **Services** dropdown grouped bef
 ## Services (ten)
 
 S/07 Exhibition hosts and hostesses was added as a tenth service, between Digital presentations and Photography. It has its own 3D icon (`hosts()` in `tools/service-renders/index.html`, rendered to `public/icons/services/svc-hosts.webp`), a photograph for layout E, a live vignette in layout B, and is a real service in the C and D chapters, so it can be added to a show plan like the others. `SERVICE_COUNT` in `lib/formations.ts` is 10, so the field draws ten hubs.
+
+## SEO
+
+All search copy and structured data live in `lib/seo.ts`:
+
+- **Domain:** `SITE_URL` defaults to `https://standout.ae`; set `NEXT_PUBLIC_SITE_URL` to override. It drives canonicals, Open Graph URLs, the sitemap and JSON-LD.
+- **Titles and descriptions:** `PAGE_SEO` for the main pages and `SERVICE_SEO` for the service pages (keyword-led titles, descriptions and FAQs). The H1s on the pages are unchanged.
+- **Structured data:** Organization + ProfessionalService + WebSite on the homepage and contact page; Service + BreadcrumbList + FAQPage on each service page; BlogPosting + BreadcrumbList on articles; AboutPage, ContactPage and CollectionPage on the inner pages. Rendered with `components/JsonLd.tsx`.
+- **Service FAQs:** `components/ServiceFaq.tsx` shows the same questions that feed the FAQPage schema, so the markup always matches what's on the page. The answers are drafts to confirm.
+- **Crawl files:** `app/robots.ts`, `app/sitemap.ts` (indexable pages only) and `app/llms.txt/route.ts`.
+- **Share images:** `public/og/` (1200×630): one default, one per service and one per article. To regenerate them after a copy change, render the same layout again at 1200×630.
+- **Review routes:** `/option-2`, `/option-3` and every `option-b`/`option-c` page are `noindex, follow` and left out of the sitemap. They are not blocked in `robots.txt`, so crawlers can still see the noindex.
+- **Social profiles:** `sameAs` stays empty until `CONTACT.linkedin` and `CONTACT.instagram` hold real profile URLs.

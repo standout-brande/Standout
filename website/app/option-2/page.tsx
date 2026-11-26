@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import { Option2Page } from '@/components/option2/Option2Page'
 
 export const metadata: Metadata = {
-  title: 'Standout — Make every exhibition count',
+  title: { absolute: 'Homepage option 2 | Standout' },
+  // Review build only: an alternative homepage, kept out of search.
+  robots: { index: false, follow: true },
+  alternates: { canonical: '/' },
   description:
     'Exhibition marketing for exhibitors: stand branding, digital campaigns, hosts and hostesses, photography, lead capture and post-event nurturing.',
 }

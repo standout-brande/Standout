@@ -1,8 +1,14 @@
-import type { Metadata } from 'next'
 import { PackagesPage } from '@/components/pages/PackagesPage'
+import { JsonLd } from '@/components/JsonLd'
+import { PAGE_SEO, breadcrumbLd, ldGraph, pageMetadata, webPageLd } from '@/lib/seo'
 
-export const metadata: Metadata = { title: 'Packages — Standout', description: 'Essentials, Marketing and 360: three packages, or build your own from our services.' }
+export const metadata = pageMetadata(PAGE_SEO.packages)
 
 export default function Packages() {
-  return <PackagesPage />
+  return (
+    <>
+      <JsonLd data={ldGraph(webPageLd('CollectionPage', PAGE_SEO.packages), breadcrumbLd([{ name: 'Packages', path: PAGE_SEO.packages.path }]))} />
+      <PackagesPage />
+    </>
+  )
 }

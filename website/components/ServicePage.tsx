@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { CONTACT, SERVICES } from '@/lib/content'
 import { SERVICE_PAGES } from '@/lib/service-pages'
+import { ServiceFaq } from '@/components/ServiceFaq'
 import { SERVICE_PHOTOS, servicePhotoStyle } from '@/lib/assets'
 import { useUI } from '@/lib/ui-store'
 import { dimField } from '@/lib/field-dim'
@@ -107,6 +108,8 @@ export function ServicePage({ index }: { index: number }) {
           </section>
         )}
 
+        <ServiceFaq slug={p.slug} name={s.short} />
+
         {/* Related */}
         <section className="px-5 py-16 md:px-10 md:py-20">
           <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8">
@@ -121,7 +124,7 @@ export function ServicePage({ index }: { index: number }) {
                   <li key={r.code}>
                     <a href={serviceHref(SERVICE_PAGES[ri].slug)} className="group flex flex-col gap-4 border border-mist/15 bg-night/70 p-4 transition-colors hover:border-signal">
                       <span className="relative block aspect-[16/10] w-full overflow-hidden">
-                        <img src={SERVICE_PHOTOS[ri]} style={servicePhotoStyle(ri)} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
+                        <img src={SERVICE_PHOTOS[ri]} style={servicePhotoStyle(ri)} alt={SERVICES[ri].name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
                       </span>
                       <span className="flex flex-col gap-1">
                         <span className="font-display text-[18px] font-bold leading-tight tracking-[-0.015em]">{r.cardName ?? r.name}</span>

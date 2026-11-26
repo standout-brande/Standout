@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const hit = pageFor(slug)
   if (!hit) return {}
-  return { title: `${SERVICES[hit.index].name} (option B) — Standout`, robots: { index: false } }
+  return { title: { absolute: `${SERVICES[hit.index].name} (option B) — Standout` }, robots: { index: false, follow: true } }
 }
 
 export default async function ServiceOptionB({ params }: { params: Promise<{ slug: string }> }) {

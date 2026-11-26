@@ -13,7 +13,7 @@ function Card({ a, featured = false }: { a: Article; featured?: boolean }) {
   return (
     <a href={articleHref(a.slug)} className={`group flex border border-mist/12 bg-night/50 transition-colors hover:border-signal/70 ${featured ? 'flex-col md:flex-row' : 'flex-col'}`}>
       <span className={`relative block overflow-hidden ${featured ? 'aspect-[16/10] md:aspect-auto md:w-[58%]' : 'aspect-[16/10]'}`}>
-        <img src={PHOTOS[a.photo]} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
+        <img loading="lazy" decoding="async" src={PHOTOS[a.photo]} alt={a.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
       </span>
       <span className={`flex flex-col gap-3 p-6 ${featured ? 'justify-center md:w-[42%] md:p-10' : ''}`}>
         <span className="flex items-center gap-3 font-mono text-[11px] uppercase text-steel">
@@ -71,8 +71,9 @@ export function ArticlePage({ index }: { index: number }) {
             <Breadcrumbs items={[{ label: 'Insights', href: pageHref('insights') }, { label: a.title }]} />
             <p className="flex items-center gap-3 font-mono text-[12px] uppercase text-steel">
               <span className="text-signal">{a.category}</span>
-              <span>{formatDate(a.date)}</span>
+              <time dateTime={a.date}>{formatDate(a.date)}</time>
               <span>{a.readMinutes} min read</span>
+              <span>By the <a href={pageHref('about')} rel="author" className="underline decoration-mist/30 underline-offset-4 hover:text-signal">Standout team</a></span>
             </p>
             <h1 className="max-w-[24ch] font-display text-[clamp(2.1rem,4.2vw,3.8rem)] font-semibold leading-[1.05] tracking-[-0.025em] [text-wrap:balance]">{a.title}</h1>
             <p className="max-w-[60ch] text-[17px] leading-relaxed text-mist/80 md:text-[19px]">{a.dek}</p>
@@ -80,7 +81,7 @@ export function ArticlePage({ index }: { index: number }) {
         </section>
         <section className="px-5 md:px-10">
           <div className="relative mx-auto aspect-[21/9] w-full max-w-[1440px] overflow-hidden border border-mist/12">
-            <img src={PHOTOS[a.photo]} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <img fetchPriority="high" src={PHOTOS[a.photo]} alt={a.title} className="absolute inset-0 h-full w-full object-cover" />
           </div>
         </section>
         <section className="px-5 py-16 md:px-10 md:py-24">

@@ -100,7 +100,7 @@ export function ServicesF() {
                 {/* Photograph: left on even cards, right on odd. */}
                 <div className={`relative h-[36%] shrink-0 p-[17px] md:col-span-6 md:h-full ${i % 2 ? 'md:order-2' : ''}`}>
                   <div className="relative h-full w-full overflow-hidden rounded-[18px] md:rounded-[22px]">
-                    <img src={SERVICE_PHOTOS[i]} style={servicePhotoStyle(i)} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                    <img loading={i === 0 ? undefined : 'lazy'} decoding="async" src={SERVICE_PHOTOS[i]} style={servicePhotoStyle(i)} alt={`${s.name} for exhibitors in Dubai and the UAE`} className="absolute inset-0 h-full w-full object-cover" />
                   </div>
                 </div>
                 <div className={`flex min-h-0 flex-1 flex-col justify-center gap-4 p-6 md:col-span-6 md:gap-5 md:p-10 ${i % 2 ? 'md:order-1' : ''}`}>
