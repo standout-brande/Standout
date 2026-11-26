@@ -28,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${funnel.variable} ${geist.variable} ${geistMono.variable}`}>
       <head>
+        {/* Google Search Console ownership check */}
+        <meta name="google-site-verification" content="EJbO--Xy66Q59KlAnMvwJl8YRPpPUGDkpKcpIR4VRQw" />
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
@@ -39,7 +41,7 @@ gtag('js', new Date());`}
       <body>
         {/* Google Tag Manager (noscript) */}
         <noscript>
-          <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
+          <iframe title="Google Tag Manager" src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
         </noscript>
         <script
           dangerouslySetInnerHTML={{
